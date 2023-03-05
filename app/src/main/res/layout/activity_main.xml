@@ -11,9 +11,10 @@
             android:layout_height="0dp" app:srcCompat="@android:drawable/ic_menu_delete"
             android:id="@+id/imageButton4"
             tools:ignore="MissingConstraints" app:layout_constraintStart_toEndOf="@+id/imageButton2"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/imageButton2"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton2" android:layout_marginEnd="31dp"
-    />
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="31dp"
+            android:layout_marginTop="32dp" android:layout_marginBottom="99dp"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar2"/>
     <ImageButton
             android:layout_width="0dp"
             android:layout_height="0dp" app:srcCompat="@android:drawable/ic_menu_call"
@@ -56,4 +57,19 @@
             app:layout_constraintStart_toEndOf="@+id/imageButton5" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="529dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="32dp"/>
+    <SeekBar
+            android:layout_width="0dp"
+            android:layout_height="0dp" android:id="@+id/seekBar2"
+            android:layout_marginTop="259dp"
+            android:layout_marginBottom="50dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/switch1" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="28dp" android:layout_marginEnd="28dp"/>
+    <Switch
+            android:text="loop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/switch1"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/seekBar2"
+            android:layout_marginEnd="36dp" android:layout_marginBottom="352dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
