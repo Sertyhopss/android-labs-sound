@@ -1,11 +1,14 @@
 package com.example.mysound;
 
+// TODO: несколько саундпулов что ли?
+
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     SoundPool soundPool;
     boolean loop;
+    float speed = 1f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         Switch loopSwitch = findViewById(R.id.switch1);
 
+        SeekBar seekBar = findViewById(R.id.seekBar2);
+
         playButton1.setOnClickListener(view -> playSound(1));
         playButton2.setOnClickListener(view -> playSound(2));
         playButton3.setOnClickListener(view -> playSound(3));
@@ -51,6 +57,20 @@ public class MainActivity extends AppCompatActivity {
             loop = isChecked;
             playSound(1);
         });
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                speed = seekBar.getProgress() / 100f;
+                Log.e("seekbar", String.valueOf(speed));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
     }
 
     private void playSound(int id) {
@@ -60,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         float leftVolume = curVolume / maxVolume;
         float rightVolume = curVolume / maxVolume;
 
-        soundPool.play(id, leftVolume, rightVolume, 1, loop?10:0, 1f);
+        soundPool.play(id, leftVolume, rightVolume, 1, loop?10:0, speed);
     }
 
     private void loadSounds(SoundPool soundPool) {
