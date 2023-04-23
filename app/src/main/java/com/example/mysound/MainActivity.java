@@ -1,6 +1,5 @@
 package com.example.mysound;
 
-// TODO: несколько саундпулов что ли?
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.soundPool = new SoundPool.Builder()
                 .setAudioAttributes(attributes)
+                .setMaxStreams(6)
                 .build();
 
         loadSounds(this.soundPool);
