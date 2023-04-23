@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MySound</string>
+    <string name="app_name">MediaRecorder</string>
+    <string name="r1">Recording...</string>
+    <string name="r2">Recording stopped.</string>
+    <string name="r3">Playing recording...</string>
+    <string name="r4">Playback of recording completed.</string>
+    <string name="r5">The playback of the recording was stopped.</string>
 </resources>
